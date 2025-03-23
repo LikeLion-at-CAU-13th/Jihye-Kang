@@ -1,0 +1,18 @@
+body {
+    width:100%;
+    border: 1px solid grey;
+}
+
+main {
+
+    border: 1px solid grey;
+    
+    img {
+        width: 100px;
+    }
+
+    text-align: center;
+
+ 
+    
+}
