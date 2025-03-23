@@ -79,6 +79,7 @@ article {
     gap: 10px;
     margin-top: 10%;
     place-items: center;
+    
 }
 
 .card{
@@ -88,10 +89,9 @@ article {
     border: 3px;
     justify-content: center;
     align-items: center;
-    box-shadow:1cm;
     border-radius: 10%;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    font-size: 200%;
+    font-size: 20px;
     font-family: "Moirai One", system-ui;
     font-weight: 300;
     font-style: normal;

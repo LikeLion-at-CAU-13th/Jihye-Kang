@@ -1,0 +1,10 @@
+h3 {
+    display:flex;
+    margin-left: 50px;
+    font-size: 30px;
+    font-family: "Moirai One", system-ui;
+    font-weight: 300;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+}
