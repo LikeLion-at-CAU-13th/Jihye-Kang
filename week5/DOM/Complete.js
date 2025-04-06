@@ -1,12 +1,11 @@
 import Button from "./Button.js";
 import Div from "./Div.js";
-import Todo from "./Todo.js";
 
 class Complete {
-    constructor(todoText){ 
+    constructor(completeText){
         this.row = new Div('', 'row').node;
 
-        this.innerText = new Div(todoText, 'text-box');
+        this.innerText = new Div(completeText, 'text-box');
         this.returnBtn = new Button('되돌리기', 'return-btn');
         this.delBtn = new Button('삭제', 'del-btn');
     }
@@ -23,15 +22,12 @@ class Complete {
     getRow(){
         return this.row;
     }
-
-    getReturnBtn() {
+    getreturnBtn() {
         return this.returnBtn.node;
     }
-
     getDelBtn() {
         return this.delBtn.node;
     }
-    
     getInnerText(){
         return this.innerText.node;
     }
