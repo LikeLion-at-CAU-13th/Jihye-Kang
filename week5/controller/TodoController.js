@@ -35,8 +35,7 @@ class TodoController {
         this.innerNode.classList.toggle('done-text');
         this.comBtnNode.classList.toggle('done-btn');
 
-        if (this.comBtnNode.innerText === '완료'){
-            
+        if (this.comBtnNode.classList.contains('done-btn')){
             const completeText = this.innerNode.innerText;
             const newCompleteController = new CompleteController(completeText);
             newCompleteController.addComplete();

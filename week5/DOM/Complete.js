@@ -6,8 +6,8 @@ class Complete {
         this.row = new Div('', 'row').node;
 
         this.innerText = new Div(completeText, 'text-box');
-        this.returnBtn = new Button('되돌리기', 'return-btn');
-        this.delBtn = new Button('삭제', 'del-btn');
+        this.returnBtn = new Button('return.png', 'return-btn');
+        this.delBtn = new Button('delete.png', 'del-btn');
     }
     
     // 만들어진 요소를 한 줄 합쳐서 this.row에 넣고 반환

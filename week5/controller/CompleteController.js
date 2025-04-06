@@ -33,7 +33,7 @@ class CompleteController {
         this.innerNode.classList.toggle('done-text');
         this.returnBtnNode.classList.toggle('done-btn');
 
-        if (this.returnBtnNode.innerText === '되돌리기'){
+        if (this.returnBtnNode.classList.contains('done-btn')){
             this.delComplete();
             this.returnTodo();
         }
