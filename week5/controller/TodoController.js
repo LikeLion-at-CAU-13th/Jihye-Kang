@@ -34,11 +34,8 @@ class TodoController {
         this.innerNode.classList.toggle('done-text');
         this.comBtnNode.classList.toggle('done-btn');
 
-        if (this.comBtnNode.getInnerText === '미완'){
-            this.comBtnNode.innerText = '완료';
-        }
-        else {
-            this.comBtnNode.innerText = '미완';
+        if (this.comBtnNode.innerText === '완료'){
+            this.delTodo();
         }
         }
     
