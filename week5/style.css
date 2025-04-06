@@ -120,7 +120,7 @@ padding-bottom: 10px;
 }
 .complete-btn{
 color: white;
-background-color: #4d81b1;
+background-color: white;
 }
 .complete-btn:hover{
 cursor: pointer;
@@ -129,8 +129,9 @@ background-color: #c4e2ff;
 
 .del-btn{
 color: white;
-background-color: #5e5e5e;
+background-color: white;
 }
+
 .del-btn:hover{
 cursor: pointer;
 background-color: #e20000;
@@ -144,3 +145,17 @@ color: #808080;
 .done-btn{
 background-color: #5e5e5e;
 }
+
+.return-btn{
+    background-color: white;
+}
+
+.return-btn:hover{
+    cursor: pointer;
+    background-color: orange;
+    }
+
+.icon {
+    width: 20px; 
+    height: 20px; 
+  }
