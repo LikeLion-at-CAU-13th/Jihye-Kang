@@ -1,4 +1,5 @@
 import Todo from "../DOM/Todo.js";
+import CompleteController from "./CompleteController.js";
 
 class TodoController {
     constructor(todoText){
@@ -35,6 +36,10 @@ class TodoController {
         this.comBtnNode.classList.toggle('done-btn');
 
         if (this.comBtnNode.innerText === '완료'){
+            
+            const completeText = this.innerNode.innerText;
+            const newCompleteController = new CompleteController(completeText);
+            newCompleteController.addComplete();
             this.delTodo();
         }
         }

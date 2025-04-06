@@ -22,7 +22,7 @@ class Complete {
     getRow(){
         return this.row;
     }
-    getreturnBtn() {
+    getReturnBtn() {
         return this.returnBtn.node;
     }
     getDelBtn() {
