@@ -14,6 +14,7 @@ const container = document.getElementById('container');
 
 let shownPages = [];
 let count = 0;
+let indexNum = 0; 
 
 async function getData() {
     do {
@@ -34,7 +35,7 @@ async function getData() {
     const datas = await toJson.response.body.items.item;
     console.log(datas);
 
-    datas.map((data, i)=>{
+    datas.map((data)=>{
         const list = document.createElement('div');
         list.id = 'list';
         
@@ -44,10 +45,12 @@ async function getData() {
 
         const info = document.createElement('span');
         info.innerText = `
-        ${i+1}번째 사진
+        ${indexNum +1}번째 사진
         제목 : ${data.galTitle}
         장소 : ${data.galPhotographyLocation}`;
 
+        indexNum ++;
+        
         list.appendChild(image);
         list.appendChild(info);
 
