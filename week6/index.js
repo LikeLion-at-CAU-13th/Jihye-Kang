@@ -11,12 +11,21 @@ const option = {
   };
 
 const container = document.getElementById('container');
-let count = 15;
+
+let shownPages = [];
+let count = 0;
 
 async function getData() {
+    do {
+      count = Math.floor(Math.random() * 50) + 1;
+    } while (shownPages.includes(count)); 
+
+    shownPages.push(count);
+
     const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${count}&serviceKey=${option.serviceKey}`
     
     const fetchData = await fetch(url);
+    //container.innerHTML = '' ;
     console.log(fetchData);
 
     const toJson = await fetchData.json();
