@@ -16,6 +16,15 @@ let shownPages = [];
 let count = 0;
 let indexNum = 0; 
 
+// 📅 날짜 포맷 변경 함수
+function formatDate(dateString) {
+  const year = dateString.substring(0, 4);
+  const month = dateString.substring(4, 6);
+  const day = dateString.substring(6, 8);
+
+  return `${year}년 ${month}월 ${day}일`;
+}
+
 async function getData() {
     do {
       count = Math.floor(Math.random() * 50) + 1;
@@ -56,8 +65,27 @@ async function getData() {
 
         container.appendChild(list);
 
-        const button = document.createElement('button');
-        button.innerText = "더보기";
-        list.appendChild(button);
-    })
+        const detailBtn = document.createElement('button');
+        detailBtn.innerText = "더보기";
+  
+        list.appendChild(detailBtn);
+
+        const formattedDate = formatDate(data.galCreatedtime);
+
+        detailBtn.addEventListener('click', () => {
+          const params = new URLSearchParams({
+            title: data.galTitle,
+            place: data.galPhotographyLocation,
+            photographer: data.galPhotographer,
+            date: formattedDate,
+            keyword: data.galSearchKeyword,
+            image: data.galWebImageUrl
+          });
+          
+          window.location.href = `detail.html?${params.toString()}`; 
+          
+          
+      });
+    }
+  )
 }
