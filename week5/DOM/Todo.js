@@ -6,8 +6,8 @@ class Todo {
         this.row = new Div('', 'row').node;
 
         this.innerText = new Div(todoText, 'text-box');
-        this.completeBtn = new Button('check.png', 'complete-btn');
-        this.delBtn = new Button('delete.png', 'del-btn');
+        this.completeBtn = new Button('check.png', 'complete-btn', '완료');
+        this.delBtn = new Button('delete.png', 'del-btn', '삭제');
     }
     
     // 만들어진 요소를 한 줄 합쳐서 this.row에 넣고 반환
