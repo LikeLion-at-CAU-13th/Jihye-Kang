@@ -1,0 +1,307 @@
+@font-face {
+  font-family: 'Font'; 
+  src: url('font/온글잎 박다현체.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Font', sans-serif;  
+}
+
+h1 {
+  font-size: 500%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 200%;
+  text-align: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#modal {
+    display: none;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    height: auto;
+    width : 40%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+  }
+
+#modal.open {
+    display: block; 
+  }
+  
+#guestbookContainer {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  padding : 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+button {
+padding: 0.5%;
+background-color: #f9f9f9;
+border-radius: 8px;
+font-size: 200%;
+cursor: pointer; 
+}
+
+#writeBtn {
+  width: 30%;
+  height: 10%;
+  margin-bottom: 5%;
+}
+
+#submitBtn {
+  background-color: rgb(174, 174, 174);
+}
+
+#submitBtn:hover {
+  color : white;
+  background-color: rgb(10, 10, 10);
+}
+
+.modalButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2%;
+}
+
+#closeModal {
+  background: none;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+  color: #333;
+}
+
+#guestbookForm {
+  display:flex;
+  flex-direction: column;
+}
+
+#guestbookForm input,
+#guestbookForm textarea {
+    margin-bottom: 3%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+@font-face {
+  font-family: 'Font'; 
+  src: url('font/온글잎 박다현체.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Font', sans-serif;  
+}
+
+h1 {
+  font-size: 500%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 200%;
+  text-align: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#modal {
+    display: none;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    height: auto;
+    width : 40%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+  }
+
+#modal.open {
+    display: block; 
+  }
+  
+#guestbookContainer {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  padding : 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+button {
+padding: 0.5%;
+background-color: #f9f9f9;
+border-radius: 8px;
+font-size: 200%;
+cursor: pointer; 
+}
+
+#writeBtn {
+  width: 30%;
+  height: 10%;
+  margin-bottom: 5%;
+}
+
+#submitBtn {
+  background-color: rgb(174, 174, 174);
+}
+
+#submitBtn:hover {
+  color : white;
+  background-color: rgb(10, 10, 10);
+}
+
+.modalButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2%;
+}
+
+#closeModal {
+  background: none;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+  color: #333;
+}
+
+#guestbookForm {
+  display:flex;
+  flex-direction: column;
+}
+
+#guestbookForm input,
+#guestbookForm textarea {
+    margin-bottom: 3%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+#paw1{
+  font-size: 40px;
+  animation: movePaw1 1s infinite alternate ease-in-out;
+}
+
+@keyframes movePaw1 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+#paw{
+  font-size: 40px;
+  animation: movePaw 1s infinite alternate ease-in-out;
+}
+
+@keyframes movePaw {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+#pawContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top:0.1%;
+  margin-bottom: 3%;
+}
+
+
+.paw{
+  font-size: 40px;
+  opacity: 0;
+  transform: scale(0);
+  animation: pawPop 1.3s infinite alternate ease-in-out;
+}
+
+.paw1 { animation-delay: 2.3s; }
+.paw2 { animation-delay: 5.6s; }
+.paw3 { animation-delay: 1.3s; }
+.paw4 { animation-delay: 4.1s; }
+.paw5 { animation-delay: 3.1s; }
+
+@keyframes pawPop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
