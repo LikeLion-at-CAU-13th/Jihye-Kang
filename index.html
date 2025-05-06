@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuestBook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>방명록♤ ♧ † £ ¢</h1>
+    <div id="pawContainer">
+      <div class="paw paw1">🐾</div>
+      <div class="paw paw2">🐾</div>
+      <div class="paw paw3">🐾</div>
+      <div class="paw paw4">🐾</div>
+      <div class="paw paw5">🐾</div>
+    </div>
+    <button id="writeBtn">작성하기</button>
+
+    <div id="modal">
+        <div id="writeGuestBook">
+          <button id="closeModal">x</button>
+          <h2>방명록 작성하기</h2>
+          <form id="guestbookForm">
+            <input type="text" name="username" placeholder="이름" required> <!-- writer -->
+            <input type="text" name="title" placeholder="제목" required> <!-- title -->
+            <textarea name="message" placeholder="메시지" required></textarea> <!-- content -->
+            <input type="password" name="password" pattern="^\d{4}$" placeholder="비밀번호(4자리)" required title="숫자 4자리 비밀번호 입력"> <!-- password -->
+  
+            <button type="submit" id="submitBtn">작성완료</button>
+          </form>
+        </div> 
+      </div>
+
+    <div id="guestbookContainer"></div>
+  
+
+    <script src="script.js"></script>
+</body>
+</html>
