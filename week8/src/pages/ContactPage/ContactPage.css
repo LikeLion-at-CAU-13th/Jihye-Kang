@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Boldonse&family=Moirai+One&display=swap');
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+h2 {
+  font-size: 40px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+}
+
+article img {
+  width: 150px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
