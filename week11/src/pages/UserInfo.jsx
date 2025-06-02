@@ -12,7 +12,7 @@ const UserInfo = () => {
     <MainLayout>
         <h1>🦁13기 아기사자 리스트🦁</h1>
         <ContentBox>
-            <UserFilter setFilter={setFilter} setUserData={setUserData} setCurPage={setCurpage} />
+            <UserFilter  setFilter={setFilter} setUserData={setUserData} setCurPage={setCurpage} />
             <UserSection filter={filter} userData={userData} curPage={curPage} setUserData={setUserData} setCurPage={setCurpage}/>
         </ContentBox>
     </MainLayout>
