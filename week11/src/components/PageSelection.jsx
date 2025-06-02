@@ -2,24 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import {getPerPage} from '../apis/userlist'
 
-const PageSelection = ({curPage, setCurPage, setUserData}) => {
+const PageSelection = ({curPage, setCurPage, setUserData, totalPage}) => {
     const handleClick = async(page) => {
-        const response = await getPerPage(page);
-        setUserData(response);
-        setCurPage(page);
+        setCurPage(page); 
     }
 
   return (
     <SelectionLayout>
-        {[1, 2, 3, 4, 5, 6].map((val) => 
-        <PageBox 
-        key={val}
-        $active={ val===curPage ? true : false }
-        onClick = {() => handleClick(val)}>
-            {val}
-        </PageBox>
-)}
-    </SelectionLayout>   
+            {Array.from({ length: totalPage }, (_, i) => (
+                <PageBox 
+                    key={i}
+                    $active={i === curPage}
+                    onClick={() => handleClick(i)}
+                >
+                    {i+1}
+                </PageBox>
+            ))}
+        </SelectionLayout>      
   )
 }
 

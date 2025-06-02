@@ -29,7 +29,7 @@ const UserFilter = ({filter, setFilter, setUserData, setCurPage}) => {
     <FilterLayout>
         {filterType.map((data, idx) =>
         <FilterBox key={idx}
-        $active={ filter ===  data.param ? false : true}
+        $active={ filter ===  data.param ? true : false}
         onClick = {() => handleClick(data.type, data.param)}>
             {data.title}
         </FilterBox>
@@ -58,7 +58,6 @@ const FilterLayout = styled.div`
 const FilterBox = styled.div`
     display: flex;
     padding: 1rem 4rem 1rem 4rem;
-    background-color: "#C9C9C9";
     border-radius: 1rem;
     font-size: 3rem;
     white-space: nowrap;
