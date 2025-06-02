@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Boldonse&family=Gowun+Dodum&display=swap');
+
+h2 {
+  display: flex;
+  font-size: 60px;
+  color: rgb(243, 115, 16);
+  justify-content: center;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+article {
+  display: flex;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  font-style: normal;
+  justify-content: center;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  gap: 10px;
+  margin-top: 10%;
+  place-items: center;
+}
+
+.card {
+  display: flex;
+  width: 250px;
+  height: 320px;
+  border: 3px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-family: "Moirai One", system-ui;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: orange;
+}
+
+.card img {
+  width: 200px;
+  height: auto;
+}
+

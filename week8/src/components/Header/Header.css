@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Boldonse&family=Gowun+Dodum&display=swap');
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+
+}
+
+.h1 {
+  font-size: 40px;
+  font-family: "Boldonse", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  margin: 0;
+  color: black;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 50px;
+  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li a {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  font-family: "Gowun Dodum", sans-serif;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: rgb(243, 115, 16);
+}
