@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Button, Title, Wrapper } from '../components/layout/common'
 import { useRecoilValue, useResetRecoilState } from 'recoil'
 import { ThemeColorContext } from '../context/context';
-import { emailAtom, isSubmittedAtom, userNameAtom } from '../recoil/atom';
+import { birthDateAtom, emailAtom, genderAtom, isSubmittedAtom, userNameAtom } from '../recoil/atom';
 import { useNavigate} from 'react-router-dom'
 import { useModal } from '../context/modalcontext';
 
@@ -14,6 +14,8 @@ const MyPage = () => {
   const resetUserName = useResetRecoilState(userNameAtom);
   const resetEmail = useResetRecoilState(emailAtom);
   const resetIsSubmitted = useResetRecoilState(isSubmittedAtom);
+  const resetBirthDate = useResetRecoilState(birthDateAtom);
+  const resetGender = useResetRecoilState(genderAtom);
 
   const { isOpen, openModal, closeModal } = useModal();
   const resetModal = closeModal;
@@ -23,6 +25,8 @@ const MyPage = () => {
     resetEmail();
     resetIsSubmitted();
     resetModal();
+    resetBirthDate();
+    resetGender();
     navigate("/");
   }
 

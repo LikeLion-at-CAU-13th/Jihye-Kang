@@ -14,3 +14,13 @@ export const isSubmittedAtom = atom({
     key: "isSubmitted",
     default: false,
 })
+
+export const birthDateAtom = atom({
+    key: 'birthDate',
+    default: "20250629",
+})
+
+export const genderAtom = atom({
+    key: "gender",
+    default: "",
+})
