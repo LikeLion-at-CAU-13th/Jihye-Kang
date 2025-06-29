@@ -22,3 +22,24 @@ export const Title = styled.div`
   font-size: 30px;
   margin: 20px;
 `;
+
+export const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ModalContent = styled.div`
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 80%;
+  text-align: center;
+`;
