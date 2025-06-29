@@ -4,6 +4,7 @@ import { useRecoilValue, useResetRecoilState } from 'recoil'
 import { ThemeColorContext } from '../context/context';
 import { emailAtom, isSubmittedAtom, userNameAtom } from '../recoil/atom';
 import { useNavigate} from 'react-router-dom'
+import { useModal } from '../context/modalcontext';
 
 const MyPage = () => {
   const userName = useRecoilValue(userNameAtom);
@@ -14,10 +15,14 @@ const MyPage = () => {
   const resetEmail = useResetRecoilState(emailAtom);
   const resetIsSubmitted = useResetRecoilState(isSubmittedAtom);
 
+  const { isOpen, openModal, closeModal } = useModal();
+  const resetModal = closeModal;
+
   const handleReset = () => {
     resetUserName();
     resetEmail();
     resetIsSubmitted();
+    resetModal();
     navigate("/");
   }
 

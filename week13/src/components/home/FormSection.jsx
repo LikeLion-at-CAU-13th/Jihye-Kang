@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import Form from './Form';
 import { useNavigate} from 'react-router-dom'
 import { ThemeColorContext } from '../../context/context';
-import { Button, Modal, ModalContent, Wrapper } from '../layout/common';
-import { useSetRecoilState } from 'recoil';
-import { isSubmittedAtom } from '../../recoil/atom';
+import { Button, FormWrapper, Modal, ModalContent, SubmitWrapper, Wrapper } from '../layout/common';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { emailAtom, isSubmittedAtom, userNameAtom } from '../../recoil/atom';
 import { useModal } from '../../context/modalcontext';
 
 
@@ -20,6 +20,10 @@ const FormSection = () => {
         setItSubmitted(true);
         navigate('/mypage');
     }
+
+    const userName = useRecoilValue(userNameAtom);
+    const userEmail = useRecoilValue(emailAtom);
+
   return (
     <Wrapper>
         <Form type='home' inputType='이름'/>
@@ -30,9 +34,15 @@ const FormSection = () => {
         {isOpen && (
         <Modal>
           <ModalContent>
-            <p>입력한 정보를 확인해주세요</p>
+            <strong>입력한 정보를 확인해주세요</strong>
+            <FormWrapper>
+            <div>이름 : {userName}</div>
+            <div>이메일 : {userEmail}</div>
+            </FormWrapper>
+            <SubmitWrapper>
             <Button mode={mode.button} onClick={closeModal}>다시 입력</Button>
             <Button mode={mode.button} onClick={handleBtn}>확인</Button>
+            </SubmitWrapper>
           </ModalContent>
         </Modal>
       )}

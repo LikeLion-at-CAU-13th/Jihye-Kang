@@ -43,3 +43,14 @@ export const ModalContent = styled.div`
   width: 80%;
   text-align: center;
 `;
+
+export const SubmitWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+`;
+
+export const FormWrapper = styled.div`
+  margin-top:1rem;
+  margin-bottom : 1rem;
+`;
