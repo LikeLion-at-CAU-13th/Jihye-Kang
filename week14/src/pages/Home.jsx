@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { useForm } from '../hooks/useForm';
@@ -22,6 +22,13 @@ const Home = () => {
     }
 
     };
+
+    useEffect(() => {
+        const token = localStorage.getItem("access"); 
+        if (token) {
+          navigate("/mypage");
+        }
+      }, [navigate]);
 
   return (
     <>
