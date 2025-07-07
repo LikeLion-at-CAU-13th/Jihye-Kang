@@ -2,33 +2,21 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { signup } from "../apis/user";
+import { useForm } from "../hooks/useForm";
 
 const Signup = () => {
-  const [id, setId] = useState("");
-const [pw, setPw] = useState("");
-const [name, setName] = useState("");
-const [age, setAge] = useState("");
-
+  const [id, onChangeId] = useForm('');
+  const [pw, onChangePw] = useForm('');
+  const [name, onChangeName] = useForm('');
+  const [age, onChangeAge] = useForm('');
   const navigate = useNavigate();
 
-  const onChangeId = (e) => {
-    setId(e.target.value);
-  };
-  const onChangePw = (e) => {
-    setPw(e.target.value);
-  };
-  const onChangeName = (e) => {
-    setName(e.target.value);
-  };
-  const onChangeAge = (e) => {
-    setAge(Number(e.target.value));
-  };
-
+ 
   const onClick = async () => {
     await signup(id, pw, name, age);
     navigate("/");
   };
-
+   
   return (
     <Wrapper>
       <Title>회원가입</Title>
@@ -36,11 +24,11 @@ const [age, setAge] = useState("");
         <div>아이디</div>
         <input value={id} onChange={onChangeId} />
         <div>비밀번호</div>
-        <input value={pw} onChange={onChangePw} />
+        <input value={pw} onChange={onChangePw} type="password" />
         <div>이름</div>
         <input value={name} onChange={onChangeName} />
         <div>나이</div>
-        <input value={age} onChange={onChangeAge} />
+        <input value={age} onChange={onChangeAge} type="number" />
       </Inputs>
       <button onClick={onClick}>가입하기</button>
     </Wrapper>
