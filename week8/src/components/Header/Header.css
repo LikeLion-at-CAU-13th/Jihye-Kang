@@ -1,3 +1,42 @@
+<<<<<<< HEAD
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+    font-family: 'Gowun Dodum', sans-serif;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar li {
+    font-size: 1rem;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #0073e6;
+  }
+  
+=======
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Boldonse&family=Gowun+Dodum&display=swap');
 
 .header {
@@ -38,3 +77,4 @@
 .navbar ul li a:hover {
   color: rgb(243, 115, 16);
 }
+>>>>>>> main
