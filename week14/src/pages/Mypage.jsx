@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { getMyPage } from '../apis/user';
+import { useNavigate } from "react-router-dom";
 
 const Mypage = () => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
+    const navigate= useNavigate();
 
     useEffect(() => {
         getMyPage(localStorage.getItem("access"))
@@ -14,17 +16,25 @@ const Mypage = () => {
         })
         .catch((error) => {
             alert("토큰 기한 만료");
-            console.log(error);
+            localStorage.removeItem("access");
+            localStorage.removeItem("refresh");
+            navigate("/signup");
         })
     }, []);
 
     if(loading) return <div>로딩중 ...</div>
+
+    const onClick = async () => {
+        localStorage.removeItem("access");
+        navigate("/");
+      };
 
   return (
     <Wrapper>
         <Title>마이페이지</Title>
         <div>이름 : {data.name}</div>
         <div>나이 : {data.age}</div>
+        <button onClick={onClick}>로그아웃</button>
     </Wrapper>
   )
 }
@@ -44,6 +54,20 @@ const Wrapper = styled.div`
   div {
     font-size: 25px;
   }
+    button {
+    background-color: skyblue;
+    color: white;
+    font-weight: 700;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    border: white;
+    margin-top: 15px;
+    &:hover {
+      box-shadow: 0 0 3px 3px skyblue;
+      color: black;
+      background-color: white;
+    }
+}
 `;
 
 const Title = styled.div`
