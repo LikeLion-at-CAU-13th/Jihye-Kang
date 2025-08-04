@@ -8,12 +8,12 @@ const useCartStore = create(
         discount: 0,
         loading: false,
 
-        addItem: (product) => {
+        addItem: (product) => { // 새 상품을 추가하는 경우는 전체 상품 정보 필요
             set((state) => {
                 const existingItem = state.cartItems.find(
                     (item) => item.name === product.name && item.price === product.price
                 );
-                if (existingItem) {
+                if (existingItem) { // 이미 있는 상품이면 수량 증가 
                     return{
                         cartItems : state.cartItems.map((item) =>
                         item.name === product.name && item.price === product.price
@@ -21,16 +21,38 @@ const useCartStore = create(
                     ),
                     };
                 }
-                return {
-                    cartItems: [...state.cartItems, {... product, id: Date.now(), quantity:1, checked: true}],
+                return { // 없는 상품이면 장바구니에 추가
+                    cartItems: [...state.cartItems, {...product, id: Date.now(), quantity:1, checked: true}],
                 };
             });
         },
 
-        removeItem: (id) =>
+        addAllItem: (product) => {
+            set((state) => {
+                return {
+                    cartItems : state.cartItems.map(item=>({
+                        ...item,
+                        checked: true,
+                    })),
+                };
+            });
+        },
+
+        removeItem: (id) => // 상품이 이미 장바구니에 추가되어있는 경우 구별할 수 있는 id만 있으면 충분
             set((state) => ({
                 cartItems : state.cartItems.filter((item) => item.id !==id),
             })),
+
+        removeAllItem: (id) =>{
+            set((state) => {
+                return {
+                    cartItems : state.cartItems.map(item=>({
+                    ...item,
+                    checked: false,
+                })),
+            };
+        });
+        },
         
         updateQuantity: (id, quantity) => 
             set((state) => ({
