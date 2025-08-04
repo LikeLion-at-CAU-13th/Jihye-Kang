@@ -27,7 +27,7 @@ const useCartStore = create(
             });
         },
 
-        addAllItem: (product) => {
+        addAllItems: () => {
             set((state) => {
                 return {
                     cartItems : state.cartItems.map(item=>({
@@ -43,7 +43,7 @@ const useCartStore = create(
                 cartItems : state.cartItems.filter((item) => item.id !==id),
             })),
 
-        removeAllItem: (id) =>{
+        removeAllItems: () =>{
             set((state) => {
                 return {
                     cartItems : state.cartItems.map(item=>({

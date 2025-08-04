@@ -21,6 +21,7 @@ export const importImage = (name) => {
 
 const ProductList = () => {
     const addItem = useCartStore((state) => state.addItem);
+  
 
     return (
     <ProductListContainer>
@@ -52,7 +53,7 @@ const ProductListContainer = styled.div`
   height: 100%;
   min-width: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 `;
 
 const ProductGrid = styled.ul`
@@ -133,3 +134,4 @@ const AddButton = styled.button`
     background-color: #218838;
   }
 `;
+

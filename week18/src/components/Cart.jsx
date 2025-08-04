@@ -8,7 +8,9 @@ import { importImage } from './ProductList';
 const Cart = () => { 
     const {
 	cartItems,
+  addAllItems,
 	removeItem,
+  removeAllItems,
 	updateQuantity,
 	toggleItemChecked,
 	applyDiscount,
@@ -26,6 +28,15 @@ const Cart = () => {
         setDiscountCode('');
     };
 
+    const handleToggleAll = () => {
+      const isAllChecked = cartItems.every(item => item.checked === true);
+        if (isAllChecked) {
+        removeAllItems();
+        } else {
+        addAllItems();
+        }
+    };
+
     return (
     <CartContainer>
       <CartTitle>장바구니 🛒</CartTitle>
@@ -40,6 +51,14 @@ const Cart = () => {
           {loading ? '처리 중...' : '적용'}
         </ApplyButton>
       </CartForm>
+      <ToggleContainer>
+        <input
+          type="checkbox"
+          id="toggleAll"
+          onChange={handleToggleAll}
+        />
+        전체선택
+      </ToggleContainer>
       {discount > 0 ? (
         <DiscountMessage color="hotpink">{discount * 100}% 할인 적용됨</DiscountMessage>
       ) : (
@@ -240,4 +259,15 @@ const TotalPrice = styled.h3`
   padding-bottom: 20px;
   text-align: center;
   color: #333;
+`;
+
+const ToggleContainer = styled.button`
+  background-color: white;
+  border: none;
+  margin-top: 10px;
+  display: flex;             
+  align-items: center;       
+  width: 100%;
+  padding: 8px 12px;           
+  cursor: pointer;     
 `;
