@@ -1,30 +1,36 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components';
 import useCartStore from '../stores/cartStore';
-
-const products = [
-    { name: '사탕', price: 2000 },
-    { name: '젤리', price: 1000 },
-    { name: '초콜렛', price: 2500 },
-    { name: '쿠키', price: 3500 },
-    { name: '마카롱', price: 4000 },
-    { name: '아이스크림', price: 990 },
-    { name: '도넛', price: 5000 },
-    { name: '엽떡', price: 14000 },
-    { name: '양꼬치', price: 25000 }
-];
+import useProductStore from '../stores/productStore';
 
 export const importImage = (name) => {
     const path = `${process.env.PUBLIC_URL}/assets/${name}.png`;
     return path;
 }
 
+
 const ProductList = () => {
-    const addItem = useCartStore((state) => state.addItem);
-  
+    const {addItem} = useCartStore();
+
+    const {
+      products,
+      sortByPriceAsc,
+      sortByPriceDesc,  
+    } = useProductStore();
+
+    const handleSortChange = (e) => {
+    if (e.target.value === 'low') 
+      sortByPriceAsc();
+    else if (e.target.value === 'high') 
+      sortByPriceDesc();
+}
 
     return (
     <ProductListContainer>
+      <SelectContainer onChange={handleSortChange}>
+        <option value="low">낮은 가격순</option>
+        <option value="high">높은 가격순</option>
+      </SelectContainer>
       <ProductGrid>
         {products.map((product, index) => (
           <ProductItem key={index}>
@@ -135,3 +141,11 @@ const AddButton = styled.button`
   }
 `;
 
+const SelectContainer = styled.select`
+  border-radius: 6px;
+  padding: 5px;
+  cursor: pointer;
+  width: 100px;
+  margin-left: 170px;
+}
+`;
