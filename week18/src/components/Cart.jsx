@@ -29,12 +29,12 @@ const Cart = () => {
     };
 
     const handleToggleAll = () => {
-      const isAllChecked = cartItems.every(item => item.checked === true);
-        if (isAllChecked) {
-        removeAllItems();
-        } else {
+      const ifUnchecked = cartItems.some(item => !item.checked );
+      if (ifUnchecked) {
         addAllItems();
-        }
+      } else {
+        removeAllItems();
+      }
     };
 
     return (
@@ -55,6 +55,7 @@ const Cart = () => {
         <input
           type="checkbox"
           id="toggleAll"
+          checked={cartItems.length > 0 && cartItems.every(item => item.checked)}
           onChange={handleToggleAll}
         />
         전체선택
