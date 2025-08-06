@@ -9,7 +9,7 @@ const UserSection = ({filter, userData, curPage, setUserData, setCurPage}) => {
 
   useEffect(() => {
     const fetchAll = async () => {
-      const res = await getPerPage(0); // 전체 유저 요청
+      const res = await getPerPage(0); 
       setAllUserData(res);
       setUserData(res.slice(0, 5)); 
     };

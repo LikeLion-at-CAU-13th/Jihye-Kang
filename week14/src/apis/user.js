@@ -46,5 +46,8 @@ export const getNewRefreshToken = async () => {
         return result.data
     } catch (error){
         alert("토큰이 만료되었습니다. 다시 로그인해주세요")
+        localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
+        window.location.href = "/";
     }
 }

@@ -16,9 +16,6 @@ const Mypage = () => {
         })
         .catch((error) => {
             alert("토큰 기한 만료");
-            localStorage.removeItem("access");
-            localStorage.removeItem("refresh");
-            navigate("/signup");
         })
     }, []);
 
