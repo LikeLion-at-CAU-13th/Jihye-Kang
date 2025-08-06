@@ -95,18 +95,6 @@ const useCartStore = create(
             return total * (1 - get().discount);
         },
 
-        sortByPriceAsc: (product) => {
-            set((state) => ({
-                product: [...state.product].sort((a,b) => a.price - b.price)
-            }));
-        },
-
-        sortByPriceDesc: (product) => {
-            set((state) => ({
-                product: [...state.product].sort((a,b) => b.price - a.price)
-            }));
-        },
-
 
     }),
     {
