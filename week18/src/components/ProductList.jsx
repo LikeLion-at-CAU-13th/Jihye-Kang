@@ -8,7 +8,6 @@ export const importImage = (name) => {
     return path;
 }
 
-
 const ProductList = () => {
     const {addItem} = useCartStore();
 
