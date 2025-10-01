@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+import User from '../../mock/user';
 
 const UserList = () => {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers ] = useState([]);
 
-    const fetchUsers =async () => {
-        const res = await fetch('/api/users'); 
+    const fetchUsers = async () => {
+        const res = await fetch('/api/users');
         const data = await res.json();
         console.log('GET 응답: ', data);
         setUsers(data.data);
     }
 
     const handleAddUser = async () => {
-        const res = await fetch ('/api/users', {
+        const res = await fetch('/api/users', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({ }),
-        })
-        const data = await res.json();
-        console.log('POST 응답: ', data);
-        fetchUsers();
+            headers: { 'Content-Type' : 'application/json'},
+            body: JSON.stringify({}),
+            })
+            const data = await res.json();
+            console.log('POST 응답: ', data);
+            fetchUsers(); 
     }
 
     const handleDeleteUser = async (id) => {
@@ -34,16 +37,18 @@ const UserList = () => {
   return (
     <Wrapper>
         <UserListBox>
-            <Title> 🦁 Likelion UserList 🦁 </Title>
+        <UserList>
+            <Title> 🦁Likelion UserList </Title>
             <Button onClick={handleAddUser}>유저 등록</Button>
             <UserListUl>
                 {users.map((u) => (
                     <UserItem key={u.id}>
                         {u.name}
-                        <DeleteButton onClick={() => handleDeleteUser(u.id)}>삭제</DeleteButton>
+                        <DeleteButton onClick={()=> handleDeleteUser(u.id)}>삭제</DeleteButton>
                     </UserItem>
-                ))} 
+                ))}
             </UserListUl>
+        </UserList>
         </UserListBox>
     </Wrapper>
   )
