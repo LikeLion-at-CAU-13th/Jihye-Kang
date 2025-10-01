@@ -4,27 +4,45 @@ import Header from "../components/Header";
 import ChatMessage from "../components/ChatMessage";
 import ChatInput from "../components/ChatInput";
 import Loader from "../components/Loader";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { motion } from "framer-motion";
+
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const MODEL = "gemini-2.0-flash";
+const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
+
+async function generateContent(prompt) {
+  const response = await fetch(URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+    }),
+  });
+
+  const data = await response.json();
+  return data.candidates?.[0]?.content?.parts?.[0]?.text ?? "응답이 없습니다.";
+}
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+//   // API 호출 로직을 SDK가 내부에서 처리
+//   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY); 
+//   const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro"}); 
+
 
   const handleSend = async () => {
     if (!input.trim()) return;
+
     const userMsg = { role: "user", content: input };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setLoading(true);
 
     try {
-      const result = await model.generateContent(input);
-      const text = result.response?.text() ?? "응답이 없습니다.";
+      const text = await generateContent(input);
       const aiMsg = { role: "assistant", content: text };
       setMessages((prev) => [...prev, aiMsg]);
     } catch (err) {
@@ -75,12 +93,9 @@ const PageWrapper = styled.div`
 const ChatCard = styled(motion.div)`
   display: flex;
   flex-direction: column;
-
   width: min(92vw, 720px);
   height: min(80vh, 820px);
-
   margin: 0 auto;
-
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
