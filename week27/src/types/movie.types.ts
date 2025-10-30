@@ -12,4 +12,4 @@ export interface Movie {
 export type SearchStatus = 'idle' | 'loading' | 'success' | 'error';
 
 // 🆕 정렬 옵션 추가 (1번 과제)
-export type SortOption = 'popularity' | 'rating' | 'release_date';
+export type SortOption = 'popularity' | 'rating' | 'release_date' | null ;
